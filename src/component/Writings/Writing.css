@@ -1,0 +1,90 @@
+.title {
+    padding-left: 10%;
+    margin-bottom: 10%;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.frame .slider span{
+    margin: 0.2em;
+    width: 0.5em;
+    height: 0.5em;
+    cursor: pointer;
+    border-radius: 0.5em;
+    background: #FF9800;
+    display: inline-block;
+    border: 2px solid rgba(255, 255, 255, 0);
+    border-collapse: collapse;
+}
+.frame .slider span:hover{
+    background: #FF9800;
+    border: 2px solid #00bcd4;
+}
+
+.title>span {
+    color: #FF9800;
+}
+
+.card {
+    width: 40%;
+    padding: 3%;
+    text-align: center;
+    border: 5px solid rgba(195, 237, 247, 0.805);
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.card .image {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    border: 1px solid #FF9800;
+}
+
+.card .name {
+    font-weight: bold;
+    padding: 10px;
+    padding-top: 5px;
+}
+
+.card .text {
+    text-align: justify;
+}
+
+.feedbackPane .blur1 {
+    position: absolute;
+    width: 20rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: #00bcd4;
+    filter: blur(150px);
+    z-index: -9;
+    left: 10%;
+
+}
+
+.feedbackPane .blur2 {
+    position: absolute;
+    width: 20rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: #e382f4;
+    filter: blur(150px);
+    z-index: -9;
+    right: 10%;
+}
+
+
+@media only screen and (max-width: 860px) {
+    .card {
+        width: 90%;
+    }
+    .title {
+        padding-left: 10px;
+    }
+}

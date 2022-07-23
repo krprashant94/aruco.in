@@ -1,0 +1,91 @@
+.twosplit {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.leftc {
+    flex-direction: row;
+}
+
+.rightc {
+    flex-direction: row-reverse;
+}
+
+.leftc .image {
+    text-align: right;
+}
+
+.rightc .image {
+    text-align: left;
+}
+
+.twosplit img {
+    max-width: 60%;
+}
+
+.rightc div:nth-child(2) {
+    text-align: right;
+}
+
+.twosplit>div {
+    width: 50%;
+    padding: 2%;
+}
+
+.twosplit .degree {
+    font-size: 2.84em;
+    color: #FF9800;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.twosplit .college {
+    font-style: italic;
+}
+
+.twosplit .major {
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.twosplit .blur1 {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: #c3a0f7;
+    filter: blur(100px);
+    z-index: -9;
+}
+
+
+@media only screen and (max-width: 860px) {
+    .twosplit {
+        display: block;
+        flex-direction: unset;
+        align-items: unset;
+        justify-content: unset;
+        align-content: unset;
+    }
+
+    .twosplit .degree {
+        font-size: 2em;
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+
+    .twosplit>div {
+        width: unset;
+        padding: 5px;
+    }
+
+    .rightc div:nth-child(2) {
+        text-align: unset;
+    }
+
+    .twosplit img {
+        max-width: 100%;
+    }
+
+}

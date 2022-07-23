@@ -1,0 +1,49 @@
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .menu {
+    font-weight: bold;
+    width: 50%;
+    max-width: 500px;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .menu a:hover {
+    color: #FF9800;
+}
+
+@media only screen and (max-width: 860px) {
+    .nav{
+        display: block;
+        width: 100%;
+    }
+    .nav .menu {
+        max-width: unset;
+        width: 100%;
+        margin: 0;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .nav{
+        display: block;
+        width: 100%;
+    }
+    .nav .menu a, .nav .menu .contact{
+        text-align: center;
+        width: 100%;
+    }
+    .nav .menu .contact{
+        margin: 0;
+        margin-top: 10px;
+    }
+}

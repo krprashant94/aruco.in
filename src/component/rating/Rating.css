@@ -1,0 +1,59 @@
+.kpi {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0 10%;
+}
+.kpi div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-basis: 25%;
+}
+.kpi div span {
+    display: block;
+    text-align: center;
+}
+
+.kpi .value {
+    border-radius: 40px;
+    padding: 5px;
+    width: 64px;
+    height: 64px;
+    background: rgb(77, 208, 225);
+    background: linear-gradient(0deg, rgba(77, 208, 225, 1) 0%, rgba(255, 183, 77, 1) 100%);
+
+}
+
+.kpi .value >*{
+    background: #fff;
+    font-size: 2em;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    border-radius: 40px;
+}
+
+.kpi .mesure {
+    margin-top: 20px;
+    font-size: 1.2em;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.kpi .text {
+    margin-top: 5px;
+    color: #FF9800;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 860px) {
+    .kpi {
+        margin: 0;
+    }
+
+    .kpi div{
+        flex-basis: 50%;
+        padding: 20px 0;
+    }
+}
