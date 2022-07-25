@@ -1,0 +1,104 @@
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:300);
+
+.footer {
+    font-family: 'Alegreya Sans', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    height: 300px;
+}
+
+.md-5 {
+    flex: 5;
+}
+
+.md-2 {
+    flex: 2;
+}
+
+.footer .row {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.footer {
+    padding: 30px;
+    background-color: #292c2f;
+    color: #bbb;
+}
+
+.footer a {
+    color: #999;
+    text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus {
+    color: #aaa;
+    text-decoration: none;
+    border-bottom: 1px dotted #999;
+}
+
+.footer input,
+.footer textarea {
+    display: block;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    font: inherit;
+    font-size: 14px;
+    font-weight: normal;
+    color: #d1d2d2;
+    width: 400px;
+    padding: 18px;
+}
+
+.footer input {
+    height: 55px;
+    margin-bottom: 15px;
+}
+
+.footer textarea {
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.footer button {
+    border-radius: 3px;
+    background-color: #33383b;
+    color: #ffffff;
+    border: 0;
+    padding: 15px 50px;
+    font-weight: bold;
+}
+
+
+.footer ::-webkit-input-placeholder {
+    color: #5c666b;
+}
+
+.footer ::-moz-placeholder {
+    color: #5c666b;
+    opacity: 1;
+}
+
+.footer :-ms-input-placeholder {
+    color: #5c666b;
+}
+
+@media only screen and (max-width: 860px) {
+    .footer {
+        height: 700px;
+        display: block;
+    }
+
+    .footer input,
+    .footer textarea {
+        width: 100%;
+    }
+    
+
+}

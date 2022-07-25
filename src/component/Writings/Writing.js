@@ -6,24 +6,19 @@ class Writing extends Component {
         super(props);
         this.article = [
             {
-                name: "User 1",
-                image: "https://308286-943399-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2022/03/innocent-modern-dp-for-whatsapp.png",
-                text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                name: "ICPR 2020",
+                image: "https://www.micc.unifi.it/icpr2020/wp-content/uploads/2018/07/favicon-1.jpg",
+                text: "Recognizing Bengali Word Images - A Zero-Shot Learning Perspective"
             },
             {
-                name: "User 2",
-                image: "https://308286-943399-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2022/03/innocent-modern-dp-for-whatsapp.png",
-                text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                name: "CVIP 2020",
+                image: "https://cvip2020.iiita.ac.in/images/cvip/logo-red.png",
+                text: "Bengali Place Name Recognition - Comparative Analysis Using Different CNN Architectures"
             },
             {
-                name: "User 3",
-                image: "https://308286-943399-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2022/03/innocent-modern-dp-for-whatsapp.png",
-                text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-            },
-            {
-                name: "User 4",
-                image: "https://308286-943399-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2022/03/innocent-modern-dp-for-whatsapp.png",
-                text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                name: "ACPR 2019",
+                image: "https://www.acpr2019.org/images/ACPR_logo.png",
+                text: "Finding Logo and Seal in Historical Document Images-An Object Detection Based Approach"
             },
         ]
     }
@@ -31,7 +26,7 @@ class Writing extends Component {
 
     render() {
         return (<div className="feedbackPane">
-            <h1 className="title">Valuable <span>feedback</span> from people and colleagues...</h1>
+            <h1 className="title">Scientific <span>writing</span> and conference proceedings...</h1>
             <div className="blur1"></div>
             <div className="frame">
 
