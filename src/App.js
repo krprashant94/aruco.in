@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import Achievement from './Achievement';
 import './App.css';
 import Footer from './component/footer/Footer';
 import Intro from './component/Intro/Intro';
@@ -7,6 +8,7 @@ import Navbar from './component/Nav/Navbar';
 import Rating from './component/rating/Rating';
 import Timeline from './component/Timeline/Timeline';
 import Writing from './component/Writings/Writing';
+import Experience from './Experience';
 import Projects from './Project';
 
 
@@ -63,6 +65,8 @@ class App extends Component {
           <Rating />
           <div style={{ height: "50px" }}></div>
         </>} />
+        <Route path='/experience' element={<Experience />} />
+        <Route path='/achievement' element={<Achievement />} />
         <Route path='/home' element={<Navigate to='/'/>} />
       </Routes>
       

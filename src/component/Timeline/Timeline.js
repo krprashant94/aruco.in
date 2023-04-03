@@ -13,7 +13,7 @@ class Timeline extends Component {
             {
                 this.props.data.map(e => {
                     return (
-                        <div className={e.align + " twosplit"}>
+                        <div className={e.align + " twosplit"} key={e.title}>
                             <div className="image">
                                 <div className="blur1"></div>
                                 <img src={e.image} alt="" />

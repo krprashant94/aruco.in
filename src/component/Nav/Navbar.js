@@ -11,8 +11,10 @@ class Navbar extends Component {
                 </div>
                 <div className="menu">
                     <Link to="home">Home</Link>
-                    <a href="https://prashantbyte.wordpress.com">Blog</a>
                     <Link to="project">Projects</Link>
+                    <Link to="experience">Experience</Link>
+                    <Link to="achievement">Achievement</Link>
+                    <a href="https://prashantbyte.wordpress.com">Blog</a>
                     <button className="contact">Contact me</button>
                 </div>
             </nav>

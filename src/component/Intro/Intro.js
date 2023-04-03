@@ -6,7 +6,7 @@ class Intro extends Component {
     resumeLink = "prashant_resume.pdf";
     github = "https://github.com/krprashant94";
     linkedin = "https://www.linkedin.com/in/waytoprashant";
-    leetcode = "https://leetcode.com/user8065Nv";
+    leetcode = "https://leetcode.com/krprashant94";
 
 
     skills = ["Problem Solving", "Big Data", "Node.js", "Algorithm", "Data Structure", "Big Data Processing", "Bug Hunting", "TensorFlow", "PySpark", "Pandas", "Gensim", "SQL"]
