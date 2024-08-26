@@ -11,9 +11,9 @@ class Timeline extends Component {
     render() {
         return (<>
             {
-                this.props.data.map(e => {
+                this.props.data.map((e, idx) => {
                     return (
-                        <div className={e.align + " twosplit"} key={e.title}>
+                        <div className={(idx %2==0 ?"leftc" :"rightc") + " twosplit"} key={e.title}>
                             <div className="image">
                                 <div className="blur1"></div>
                                 <img src={e.image} alt="" />

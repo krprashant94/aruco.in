@@ -73,8 +73,16 @@
     border: 0;
     padding: 15px 50px;
     font-weight: bold;
+    cursor: pointer;
 }
 
+.footer button:hover {
+    box-shadow: 0px 0px 10px 0 #4f575c;
+}
+
+.footer button:active {
+    box-shadow: 0px 0px 5px 0 #4f575c;
+}
 
 .footer ::-webkit-input-placeholder {
     color: #5c666b;
@@ -99,6 +107,4 @@
     .footer textarea {
         width: 100%;
     }
-    
-
 }

@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.frame .slider span{
+.frame .slider span {
     margin: 0.2em;
     width: 0.5em;
     height: 0.5em;
@@ -20,7 +20,8 @@
     border: 2px solid rgba(255, 255, 255, 0);
     border-collapse: collapse;
 }
-.frame .slider span:hover{
+
+.frame .slider span:hover {
     background: #FF9800;
     border: 2px solid #00bcd4;
 }
@@ -35,6 +36,8 @@
     text-align: center;
     border: 5px solid rgba(195, 237, 247, 0.805);
     border-radius: 10px;
+    min-height: 250px;
+    max-height: 250px;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 }
@@ -52,8 +55,13 @@
     padding-top: 5px;
 }
 
-.card .text {
+.card .paper {
+    margin-bottom: 10px;
+}
+
+.card .description {
     text-align: justify;
+    font-size: 12px;
 }
 
 .feedbackPane .blur1 {
@@ -84,6 +92,7 @@
     .card {
         width: 90%;
     }
+
     .title {
         padding-left: 10px;
     }

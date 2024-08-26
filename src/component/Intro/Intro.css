@@ -126,9 +126,11 @@
     .intro .contact {
         margin: 40px 0;
     }
-    .right{
+
+    .right {
         text-align: center;
     }
+
     .skill,
     .sunglass,
     .humble {
@@ -141,6 +143,7 @@
         left: unset;
         top: unset;
     }
+
     .right .vec {
         padding: 5% 25%;
         position: absolute;
@@ -149,7 +152,8 @@
         left: 0;
         top: 0;
     }
-    .sunglass{
+
+    .sunglass {
         left: 0;
     }
 

@@ -1,5 +1,8 @@
 import { Component } from "react";
 import Timeline from "./component/Timeline/Timeline";
+import Rating from "./component/rating/Rating";
+import Footer from "./component/footer/Footer";
+import Navbar from "./component/Nav/Navbar";
 
 class Projects extends Component {
 
@@ -50,9 +53,16 @@ class Projects extends Component {
             },
         ];
 
-        return (<div>
-            <Timeline data={project}></Timeline>
-        </div>);
+        return (
+            <div>
+                <Navbar />
+                <Timeline data={project}></Timeline>
+                <div style={{ height: "50px" }}></div>
+                <Rating />
+                <div style={{ height: "50px" }}></div>
+                <Footer />
+            </div>
+        );
     }
 }
 

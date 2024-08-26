@@ -9,7 +9,7 @@ class Intro extends Component {
     leetcode = "https://leetcode.com/krprashant94";
 
 
-    skills = ["Problem Solving", "Big Data", "Node.js", "Algorithm", "Data Structure", "Big Data Processing", "Bug Hunting", "TensorFlow", "PySpark", "Pandas", "Gensim", "SQL"]
+    skills = ["Problem Solving", "Big Data", "Generative AI", "ChatBots", "API", "Airflow", "FastAPI", "VertexAI", "Google Cloud", "Algorithm", "Data Structure", "Big Data Processing", "Bug Hunting", "TensorFlow", "Keras", "Langchain", "PySpark", "Pandas", "SQL"]
     state = { name: "Prashant Kumar", mhIntro: "700px" };
 
     componentDidMount() {
@@ -30,14 +30,14 @@ class Intro extends Component {
     }
 
     render() {
-        let s1 = Math.floor(Math.random()*this.skills.length);
+        let s1 = Math.floor(Math.random() * this.skills.length);
         let s2 = s1;
         let s3 = s1;
-        while(s1 === s2){
-            s2 = Math.floor(Math.random()*this.skills.length);
+        while (s1 === s2) {
+            s2 = Math.floor(Math.random() * this.skills.length);
         }
-        while(s3 === s1 || s3 === s2){
-            s3 = Math.floor(Math.random()*this.skills.length);
+        while (s3 === s1 || s3 === s2) {
+            s3 = Math.floor(Math.random() * this.skills.length);
         }
         return (
             <div className="intro" style={{ maxHeight: this.state.mhIntro }}>
