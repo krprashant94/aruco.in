@@ -17,14 +17,6 @@ class App extends Component {
   render() {
     const education = [
       {
-        align: "leftc",
-        image: "./image/gec.jpg",
-        title: "Infosys Corporate Traning",
-        heading: "MEAN Stack",
-        subheading: "Global Education Center Infosys, Mysore",
-        text: ""
-      },
-      {
         align: "rightc",
         image: "./image/rcciit.jpg",
         title: "Bachelor of Technology",

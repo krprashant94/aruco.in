@@ -8,8 +8,16 @@ class Experience extends Component {
     render() {
         const data = [
             {
+                align: "rightc",
+                image: "./image/accenture.png",
+                title: "Accenture",
+                heading: "AIML Computational Science Senior Analyst",
+                subheading: "Bangalore",
+                text: 'Accenture plc is a global multinational professional services company originating in the United States and headquartered in Dublin, Ireland, that specializes in information technology (IT) services and management consulting. A Fortune Global 500 company.'
+            },
+            {
                 align: "leftc",
-                image: "./image/infosys.jpg",
+                image: "./image/infosys.png",
                 title: "Infosys Limited",
                 heading: "Digital Specialist Engineer",
                 subheading: "Bangalore",

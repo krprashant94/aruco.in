@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>http://www.aruco.in</loc>
+      <lastmod>2022-10-09</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>1</priority>
+   </url>
+   <url>
+      <loc>http://www.aruco.in/project</loc>
+      <lastmod>2022-10-09</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>http://www.aruco.in/experience</loc>
+      <lastmod>2022-10-09</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>http://www.aruco.in/achievement</loc>
+      <lastmod>2022-10-09</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>http://www.aruco.in/prashant_resume.pdf</loc>
+      <lastmod>2022-10-09</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.4</priority>
+   </url>
+</urlset>

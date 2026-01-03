@@ -9,7 +9,7 @@ class Intro extends Component {
     leetcode = "https://leetcode.com/krprashant94";
 
 
-    skills = ["Problem Solving", "Big Data", "Generative AI", "ChatBots", "API", "Airflow", "FastAPI", "VertexAI", "Google Cloud", "Algorithm", "Data Structure", "Big Data Processing", "Bug Hunting", "TensorFlow", "Keras", "Langchain", "PySpark", "Pandas", "SQL"]
+    skills = ["Problem Solving", "Generative AI", "ChatBots", "API", "Airflow", "FastAPI", "VertexAI", "Google Cloud", "Algorithm", "Bug Hunting", "TensorFlow", "Keras", "Langchain", "PySpark", "Pandas", "SQL"]
     state = { name: "Prashant Kumar", mhIntro: "700px" };
 
     componentDidMount() {
@@ -46,7 +46,7 @@ class Intro extends Component {
                         <div className="hi">Hi, I'm</div>
                         <div className="name">{this.state.name}</div>
                         <div className="desc">
-                            I am a programmer and a developer
+                            AIML Computational Science Senior Analyst
                         </div>
                     </div>
                     <div>

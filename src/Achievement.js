@@ -10,25 +10,18 @@ class Achievement extends Component {
 
         const data = [
             {
-                image: "./image/alteryx.png",
-                title: "Alteryx Foundational Micro",
+                image: "./image/google_ace.png",
+                title: "Associate Cloud Engineer Certification",
                 heading: "",
-                subheading: "Issued by Alteryx",
-                text: 'Earners of this micro-credential have a basic understanding of data analytics concepts and key Designer functionality. They can identify data types and data formats as well as recognize the foundational elements of Alteryx Designer and associate the most used tools with their functionality. <br><a style="color:#00bcd4;" href="https://www.credly.com/badges/9c85f2b0-971e-487a-ad1a-9f27d3797d2f/public_url">View</a>'
+                subheading: "Issued by Google Cloud",
+                text: 'Associate Cloud Engineers deploy applications, monitor operations, and manage enterprise solutions. They use Google Cloud Console and the command-line interface to perform common platform-based tasks to maintain one or more deployed solutions that leverage Google-managed or self-managed services on Google Cloud. <br><a style="color:#00bcd4;" href="https://www.credly.com/badges/b7a2ef5b-a26a-49e9-9dfa-6c7ff2f5269d">View</a>'
             },
             {
-                image: "./image/incorta.png",
-                title: "Essentials for Business Analyst",
-                heading: "",
-                subheading: 'Issued by Learn Incorta',
-                text: 'The Incorta 5 Essentials for Business Analysts course provides students with a comprehensive understanding of the procedures and techniques necessary to rapidly load data, build dashboards, and produce immediate insights using Incorta. Through self-paced, interactive learning and project-based labs, students will master Incorta key concepts, terminology and topics for on the job success. This course requires student experience with data analysis. <br><a style="color:#00bcd4;" href="https://www.credential.net/987370fc-c2b5-4d10-8d34-df4b7ea9ed38">View</a>'
-            },
-            {
-                image: "./image/google.png",
+                image: "./image/google_cdl.png",
                 title: "Cloud Digital Leader",
                 heading: "",
                 subheading: 'Issued by Google Cloud',
-                text: 'A successful candidate can articulate the capabilities of Google Cloud core products and services and how they benefit organizations. The candidate can also describe common business use cases and how cloud solutions support an enterprise. <br><a style="color:#00bcd4;" href="https://www.credential.net/9df7bfd3-9d5f-49fa-b227-a54c1d7b7393?key=2fc9b1224269e3f0efb52f77f9c4fa3547504db0733776e2f5436d0ea08e0db7">View</a>'
+                text: 'A successful candidate can articulate the capabilities of Google Cloud core products and services and how they benefit organizations. The candidate can also describe common business use cases and how cloud solutions support an enterprise. <br><a style="color:#00bcd4;" href="https://www.credly.com/badges/5a6adf6a-a8f5-40d4-953e-7e53f0386d06">View</a>'
             },
             {
                 image: "./image/dp-900.png",
