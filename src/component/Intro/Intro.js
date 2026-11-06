@@ -46,7 +46,7 @@ class Intro extends Component {
                         <div className="hi">Hi, I'm</div>
                         <div className="name">{this.state.name}</div>
                         <div className="desc">
-                            AIML Computational Science Senior Analyst
+                            AIML Engineer
                         </div>
                     </div>
                     <div>
@@ -61,7 +61,7 @@ class Intro extends Component {
                 <div className="right">
                     <img src="./img/vector1.png" alt="" className="vec" />
                     <img src="./img/vector2.png" alt="" className="vec" />
-                    <img src="./img/boy.png" alt="" className="person" />
+                    <img src="./image/prashant_photo2.png" alt="" className="person" />
                     <img src="./img/glassesimoji.png" alt="" width="128px" className="sunglass" />
                     <img src="./img/humble.png" alt="" className="humble" />
                     <div className="skill skill1">{this.skills[s1]}</div>

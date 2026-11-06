@@ -18,14 +18,22 @@ class App extends Component {
     const education = [
       {
         align: "rightc",
+        image: "./image/nitjsr.jpg",
+        title: "Doctor of Philosophy",
+        heading: "Computer Science and Engineering",
+        subheading: "National Institute of Technology Jamshedpur",
+        text: "Ongoing"
+      },
+      {
+        align: "leftc",
         image: "./image/rcciit.jpg",
         title: "Bachelor of Technology",
         heading: "Computer Science and Engineering",
         subheading: "RCC Institute of Information Technology",
-        text: "Maulana Abul Kalam Azad University of Technology, Kolkata"
+        // text: "Maulana Abul Kalam Azad University of Technology, Kolkata"
       },
       {
-        align: "leftc",
+        align: "rightc",
         image: "./image/kmpm.jpg",
         title: "Intermediate in Science",
         heading: "Physics Chemistry, Mathematics and Computer Science",

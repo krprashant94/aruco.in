@@ -4,7 +4,7 @@ import "./Rating.css"
 class Rating extends Component {
     constructor(props) {
         super(props);
-        this.arr = [["4+", "Year", "Experience"],["10+", "Completed", "Live Project"],["3+", "Programming", "Languages"],];
+        this.arr = [["5+", "Year", "Experience"],["10+", "Completed", "Live Project"],["3+", "Programming", "Languages"],];
     }
 
     render() {

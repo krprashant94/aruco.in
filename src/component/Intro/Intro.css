@@ -58,6 +58,10 @@
 }
 
 .right .person {
+    /* Fades the image out at the bottom */
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+
     width: 50%;
     left: 25%;
     top: 8%;
