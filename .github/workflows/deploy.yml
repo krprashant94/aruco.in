@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       VM_USER:
-        description: "SSH username for the VM"
+        description: "SSH username for the deployment server"
         required: true
         type: string
 
@@ -20,16 +20,54 @@ concurrency:
   group: react-website-deployment
   cancel-in-progress: false
 
+env:
+  VM_HOST: server.sixpetal.com
+  DEPLOY_PATH: /var/www/aruco_in/website
+
 jobs:
   deploy:
+    name: Build & Deploy
     runs-on: ubuntu-latest
 
     env:
-      VM_HOST: server.sixpetal.com
-      DEPLOY_PATH: /var/www/aruco_in/website
       VM_USER: ${{ inputs.VM_USER || vars.VM_USER }}
 
     steps:
+      # ----------------------------------------
+      # 1. Validate deployment configuration
+      # ----------------------------------------
+
+      - name: Validate deployment credentials
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.VM_SSH_PRIVATE_KEY }}
+          VM_KNOWN_HOSTS: ${{ secrets.VM_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+
+          [[ -n "$VM_USER" ]] || {
+            echo "::error::VM_USER is missing"
+            exit 1
+          }
+
+          [[ "$VM_USER" =~ ^[a-zA-Z0-9._-]+$ ]] || {
+            echo "::error::Invalid VM_USER"
+            exit 1
+          }
+
+          [[ -n "$SSH_PRIVATE_KEY" ]] || {
+            echo "::error::SSH private key is missing"
+            exit 1
+          }
+
+          [[ -n "$VM_KNOWN_HOSTS" ]] || {
+            echo "::error::Known hosts configuration is missing"
+            exit 1
+          }
+
+      # ----------------------------------------
+      # 2. Checkout & setup Node.js
+      # ----------------------------------------
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -39,37 +77,30 @@ jobs:
           node-version: 22
           cache: npm
 
+      # ----------------------------------------
+      # 3. Install dependencies & build
+      # ----------------------------------------
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build React application
         run: npm run build
 
-      - name: Validate build directory
+      - name: Validate build output
         run: |
-          test -d dist
-          test -f dist/index.html
+          set -euo pipefail
 
-      - name: Validate deployment credentials
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.VM_SSH_PRIVATE_KEY }}
-        run: |
-          if [ -z "$VM_USER" ]; then
-            echo "VM_USER is missing"
-            exit 1
-          fi
+          test -d build
+          test -f build/index.html
 
-          if ! [[ "$VM_USER" =~ ^[a-zA-Z0-9._-]+$ ]]; then
-            echo "Invalid VM_USER"
-            exit 1
-          fi
+          echo "Build validation successful."
 
-          if [ -z "$SSH_PRIVATE_KEY" ]; then
-            echo "VM_SSH_PRIVATE_KEY secret is missing"
-            exit 1
-          fi
+      # ----------------------------------------
+      # 4. Configure SSH
+      # ----------------------------------------
 
-      - name: Configure SSH
+      - name: Configure SSH authentication
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
@@ -78,12 +109,36 @@ jobs:
         env:
           VM_KNOWN_HOSTS: ${{ secrets.VM_KNOWN_HOSTS }}
         run: |
+          set -euo pipefail
+
           mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
           printf '%s\n' "$VM_KNOWN_HOSTS" > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
 
+      # ----------------------------------------
+      # 5. Verify SSH connection
+      # ----------------------------------------
+
+      - name: Test SSH connection
+        run: |
+          set -euo pipefail
+
+          ssh \
+            -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            "$VM_USER@$VM_HOST" \
+            "echo 'SSH connection successful.'"
+
+      # ----------------------------------------
+      # 6. Verify remote deployment directory
+      # ----------------------------------------
+
       - name: Verify deployment directory
         run: |
+          set -euo pipefail
+
           ssh "$VM_USER@$VM_HOST" "
             test -d /var &&
             test ! -L /var &&
@@ -95,13 +150,36 @@ jobs:
             test ! -L '$DEPLOY_PATH'
           "
 
-      - name: Deploy React build
+          echo "Deployment directory verified."
+
+      # ----------------------------------------
+      # 7. Package & deploy React application
+      # ----------------------------------------
+
+      - name: Deploy React application
         run: |
-          rsync -az --delete \
-            --no-links \
-            -e "ssh" \
-            dist/ \
-            "$VM_USER@$VM_HOST:$DEPLOY_PATH/"
+          set -euo pipefail
+
+          ARCHIVE="build.tar.gz"
+
+          tar -czf "$ARCHIVE" -C build .
+
+          scp "$ARCHIVE" \
+            "$VM_USER@$VM_HOST:$DEPLOY_PATH/$ARCHIVE"
+
+          ssh "$VM_USER@$VM_HOST" "
+            set -e
+            cd '$DEPLOY_PATH'
+            tar -xzf '$ARCHIVE'
+            rm -f '$ARCHIVE'
+          "
+
+      # ----------------------------------------
+      # 8. Deployment completed
+      # ----------------------------------------
 
       - name: Deployment completed
-        run: echo "React website deployed successfully!"
+        run: |
+          echo "=================================="
+          echo " React website deployed successfully!"
+          echo "=================================="
