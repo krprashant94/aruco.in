@@ -1,0 +1,107 @@
+
+name: Deploy React Website
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+    inputs:
+      VM_USER:
+        description: "SSH username for the VM"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: react-website-deployment
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      VM_HOST: server.sixpetal.com
+      DEPLOY_PATH: /var/www/aruco_in/website
+      VM_USER: ${{ inputs.VM_USER || vars.VM_USER }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build React application
+        run: npm run build
+
+      - name: Validate build directory
+        run: |
+          test -d dist
+          test -f dist/index.html
+
+      - name: Validate deployment credentials
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.VM_SSH_PRIVATE_KEY }}
+        run: |
+          if [ -z "$VM_USER" ]; then
+            echo "VM_USER is missing"
+            exit 1
+          fi
+
+          if ! [[ "$VM_USER" =~ ^[a-zA-Z0-9._-]+$ ]]; then
+            echo "Invalid VM_USER"
+            exit 1
+          fi
+
+          if [ -z "$SSH_PRIVATE_KEY" ]; then
+            echo "VM_SSH_PRIVATE_KEY secret is missing"
+            exit 1
+          fi
+
+      - name: Configure SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
+
+      - name: Configure known hosts
+        env:
+          VM_KNOWN_HOSTS: ${{ secrets.VM_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$VM_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Verify deployment directory
+        run: |
+          ssh "$VM_USER@$VM_HOST" "
+            test -d /var &&
+            test ! -L /var &&
+            test -d /var/www &&
+            test ! -L /var/www &&
+            test -d /var/www/aruco_in &&
+            test ! -L /var/www/aruco_in &&
+            test -d '$DEPLOY_PATH' &&
+            test ! -L '$DEPLOY_PATH'
+          "
+
+      - name: Deploy React build
+        run: |
+          rsync -az --delete \
+            --no-links \
+            -e "ssh" \
+            dist/ \
+            "$VM_USER@$VM_HOST:$DEPLOY_PATH/"
+
+      - name: Deployment completed
+        run: echo "React website deployed successfully!"
